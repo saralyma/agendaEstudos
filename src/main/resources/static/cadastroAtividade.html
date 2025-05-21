@@ -1,0 +1,61 @@
+<!-- cadastroAtividade.html -->
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Atividade</title>
+    <link rel="stylesheet" href="css/cadastro.css">
+</head>
+<body>
+<div class="container cadastro">
+    <h1>➕ Cadastrar Nova Atividade</h1>
+    <form id="formAtividade">
+        <label for="atividadeExistente">Selecionar Atividade Existente (Opcional):</label>
+        <select name="atividadeExistente" id="atividadeExistente">
+            <option value="">-- Selecione uma atividade --</option>
+        </select>
+        <br><br>
+
+        <label for="atividadeNome">Nome da Atividade:</label>
+        <input type="text" name="atividadeNome" id="atividadeNome" maxlength="100" required>
+
+        <label for="descricaoAtividade">Descrição (até 500 caracteres):</label>
+        <textarea name="descricaoAtividade" id="descricaoAtividade" maxlength="500" rows="4" required></textarea>
+
+        <label>Dias da Semana:</label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="diasSemana" value="segunda">Segunda</label>
+            <label><input type="checkbox" name="diasSemana" value="terca">Terça</label>
+            <label><input type="checkbox" name="diasSemana" value="quarta">Quarta</label>
+            <label><input type="checkbox" name="diasSemana" value="quinta">Quinta</label>
+            <label><input type="checkbox" name="diasSemana" value="sexta">Sexta</label>
+            <label><input type="checkbox" name="diasSemana" value="sabado">Sábado</label>
+            <label><input type="checkbox" name="diasSemana" value="domingo">Domingo</label>
+        </div>
+
+        <<label for="dataInicio">Data Início:</label>
+        <input type="date" name="dataInicio" id="dataInicio" required>
+
+        <label for="dataFim">Data Fim:</label>
+        <input type="date" name="dataFim" id="dataFim" required>
+
+
+        <label for="horaInicio">Hora Início:</label>
+        <input type="time" name="horaInicio" id="horaInicio">
+
+        <label for="horaFim">Hora Fim:</label>
+        <input type="time" name="horaFim" id="horaFim">
+
+        <label for="observacoes">Observações:</label>
+        <textarea name="observacoes" id="observacoes" maxlength="500" rows="3"></textarea>
+
+        <button type="submit" class="btn">Salvar Atividade</button>
+    </form>
+    <br>
+    <a href="index.html" class="btn">⬅ Voltar</a>
+</div>
+
+<script src="js/cadastro.js"></script>
+</body>
+</html>

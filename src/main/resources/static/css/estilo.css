@@ -1,0 +1,83 @@
+/* estilo.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 400px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 22px;
+  color: #333;
+}
+
+.menu-crud {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+#btnFiltrar {
+  background-color: #28a745;
+}
+
+#btnFiltrar:hover {
+  background-color: #1e7e34;
+}
+
+.grid-meses {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.mes {
+  padding: 10px;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.mes:hover {
+  background-color: #c0c0c0;
+}
+
+.mes-ativo-info {
+  font-weight: bold;
+  color: green;
+  margin-bottom: 10px;
+  font-size: 16px;
+}

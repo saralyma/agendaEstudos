@@ -20,6 +20,7 @@ public class ExemploHashMap  {
 
         for (String chave : usandoHashMap.keySet()) {
             System.out.println("Chave: " + chave);
+            
             System.out.println("Valor: " + usandoHashMap.get(chave));
         }
 

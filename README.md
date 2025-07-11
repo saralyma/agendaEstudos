@@ -20,6 +20,7 @@ Uma aplicação web completa para gerenciar e organizar atividades de estudo, de
 - **Design Responsivo**
 
 ### Banco de Dados
+
 - **MongoDB** (principal)
 - **H2 Database** (desenvolvimento/testes)
 

@@ -1,0 +1,31 @@
+# Workflow para deploy automático no Heroku
+# Para usar: configure HEROKU_API_KEY e HEROKU_APP_NAME nos secrets do GitHub
+name: Deploy to Heroku
+
+on:
+  push:
+    branches: [ master ]
+  # Só deploya na branch master quando há mudanças
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: 🚀 Deploy to Heroku
+      uses: akhileshns/heroku-deploy@v3.12.12
+      with:
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+        heroku_email: ${{ secrets.HEROKU_EMAIL }}
+        
+    # Alternativa usando Docker (se preferir)
+    # - name: 🐳 Build and push Docker image
+    #   uses: docker/build-push-action@v3
+    #   with:
+    #     context: .
+    #     push: true
+    #     tags: ${{ secrets.HEROKU_APP_NAME }}:latest

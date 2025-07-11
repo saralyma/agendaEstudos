@@ -1,0 +1,64 @@
+# Workflow para criar releases automaticamente
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'  # Executa quando uma tag versão é criada (ex: v1.0.0)
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: ☕ Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    
+    - name: 📦 Cache Maven dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+    
+    - name: 🔨 Build application
+      run: mvn clean package -DskipTests
+    
+    - name: 🚀 Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: |
+          ## 📘 Agenda de Estudos - Release ${{ github.ref }}
+          
+          ### ✨ Novidades nesta versão:
+          - Melhorias na interface
+          - Correções de bugs
+          - Otimizações de performance
+          
+          ### 🚀 Como usar:
+          1. Baixe o arquivo JAR abaixo
+          2. Execute: `java -jar agendaestudos-*.jar`
+          3. Acesse: http://localhost:8080
+        draft: false
+        prerelease: false
+    
+    - name: 📤 Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: target/agendaestudos-*.jar
+        asset_name: agendaestudos-${{ github.ref }}.jar
+        asset_content_type: application/java-archive

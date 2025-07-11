@@ -1,0 +1,61 @@
+/* css/relatorio.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f2f3f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  width: 900px;
+  
+  max-width: 95%;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+h1::before {
+  content: "📊";
+  font-size: 26px;
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+  margin-top: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  margin-top: 20px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #495057;
+}
